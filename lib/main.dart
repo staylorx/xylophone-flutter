@@ -1,16 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:logger/logger.dart';
 
-void main() => runApp(XylophoneApp());
+import 'xylophone.dart';
 
-class XylophoneApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
+// final logger = Logger();
+final logger = Logger(
+  printer: PrettyPrinter(
+    methodCount: 0,
+    errorMethodCount: 5,
+    lineLength: 50,
+    colors: true,
+    printEmojis: true,
+    printTime: false,
+  ),
+);
+
+void main() {
+  return runApp(
+    MaterialApp(
       home: Scaffold(
-        body: SafeArea(
-          child: Container(),
-        ),
-      ),
-    );
-  }
+          backgroundColor: Colors.black,
+          appBar: AppBar(
+            title: const Text('Audio'),
+            backgroundColor: Colors.red[800],
+          ),
+          body: const XylophoneApp()),
+    ),
+  );
 }
